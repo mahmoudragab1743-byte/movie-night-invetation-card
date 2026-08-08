@@ -1,0 +1,284 @@
+:root {
+    --primary: #e91e63;
+    --secondary: #ff4081;
+    --accent:#ffd54f;
+    --dark:#2c003e;
+    --glass:rgba(30,10,50,0.85);
+    --glass-border:rgba(255,255,255,0.15);
+}
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body{
+    font-family: segoe ui, sans-serif;
+    background: linear-gradient(135deg, #1a0b2e 0%, #4a148c 50%,#e91e63);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+    color: white;
+}
+
+.particles{
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform: translateY(100vh) scale(0); opacity: 0;}
+    50%{opacity: 0.8;}
+    100%{transform: translateY(-10vh); scale(1) ; opacity: 0;}
+}
+
+.card{
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    background: var(--glass);
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 25px 50px 0 rgba(0,0,0,0.4);
+                inset 0 1px 0 rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    max-width: 480px;
+    transition: all 0.3s ease;
+}
+
+.emoji-hero{
+    font-size: 5rem;
+    margin-bottom: 10px;
+    display:block;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 10 20px rgba(0,0,0,0.3));
+}
+
+@keyframes bounce{
+    0%,100%{transform: translateY(0);}
+    50%{transform: translateY(-15px);}
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #fff, #ffd54f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.subtitle{
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    font-weight:300;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.timer-container{
+    background:rgba(0,0,0,0.3) ;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.timer-label{
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.timer-display{
+    font-size: 2rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(255, 213, 79, 0.5);
+}
+
+.btn-group{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    min-height: 60px;
+    position: relative;
+}
+
+button{
+    border: none;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    outline: none;
+    letter-spacing: 0.5px;
+}
+
+.btn-yes{
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 8px 25px rgba(233,30,99,0.5);
+    flex-shrink: 0;
+}
+
+.btn-yes:hover{
+    transform: scale(1.12);
+    box-shadow: 0 12px 35px rgba(233,30,99,0.7);
+}
+
+.btn-no{
+    background: #ffffff;
+    color: #2c003e;
+    border: 2px solid #e0e0e0;
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.form-step{
+    display: none;
+    animation: fadeIn 0.5s ease ;
+}
+
+.input-group{
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ffd54f;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.1);
+    outline: none;
+    font-size: 1rem;
+    font-family: inherit;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    transition: all 0.3s;
+}
+
+input:focus{
+    border-color: var(--primary);
+    background: rgba(0,0,0,0.5);
+}
+
+.btn-submit {
+    background: var(--accent);
+    color: var(--dark);
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-submit:hover{
+    transform: scale(1.02);
+    box-shadow: #fff;
+}
+
+.success-overlay{
+    position: fixed;
+    background: linear-gradient(135deg, #1a0b2e, #4a148c);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.success-overlay.active{
+    display: flex; animation: fadeIn 0.6s ease;
+}
+
+.success-emoji{
+    font-size: 6rem;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.success-title{font-size: 2rem; margin-bottom: 20px 0 10px;}
+
+.details-box {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    min-width: 280px;
+}
+
+.detail-row{
+    margin:10px 0;
+}
+
+.detail-label{
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-value{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.success-sub{
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+@keyframes pulse{
+    0% , 100%{transform: scale(1);}
+    50%{transform: scale(1.15);}
+}
+
+@keyframes fadeIn{
+    from{opacity: 0;
+         transform: translateY(20px);
+    } to{
+    opacity: 1;
+     transform: translateY(0);}
+}
+
+.confetti-piece{
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    z-index: 101;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+    0% {transform: translateY(-20px) rotate(0deg); opacity: 1;}
+    100% {transform: translateY(110vh) rotate(720deg); opacity: 0;}
+}
+
+@media (max-width:480px) {
+    .card {padding:35px 25px; }
+    h1 {font-size:1.7rem}
+    .emoji-hero{font-size:3.5rem}
+    button {padding: 14px 28px; font-size:1rem;}
+}

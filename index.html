@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", intial-scale="1.0">
+        <title>Brother's movie night</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="particles" id="particles"></div>
+        <div class="card" id="maincard">
+            <div id="step-question">
+                <span class="emoji-hero">🎞️</span>
+                <h1>Would you like to go with me on a movie night</h1>
+                <p class="subtitle">I know a great spot... but I need your answer first!?</p>
+                <div class="timer-container">
+                    <div class="timer-label">Offer expires in</div>
+                    <div class="timer-display" id="timer">05:00</div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-yes" onclick="goToScheduling()">Yes!</button>
+                    <button class="btn-no" id="noBtn">No</button>
+                </div>
+            </div>
+            <div id="step-schedule" class="form-step">
+                <span class="emoji-hero">🗓️</span>
+                <h1>Let's plan It!</h1>
+                <p class="subtitle">When and where should I pick you up?</p>
+
+                <div class="input-group">
+                    <label> which do you want to go?</label>
+                    <input type="text" id="placeInput" placeholder="e.g. that any place">
+                </div>
+
+                <div class="input-group">
+                    <label> when are you free?</label>
+                    <input type="datetime-local" id="dateInput">
+                </div>
+                <button class="btn-submit" onclick="finalizeDate()">Confirm the night🔒</button>
+            </div>
+        </div>
+        <div class="success-overlay" id="successOverlay">
+            <span class="success-emoji">🎉</span>
+            <h1 class="success-title">It will be a Beautiful Night </h1>
+
+            <div class="details-box">
+<div class="detail-row">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value" id="finalMovieNightplace">--</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Time</div>
+                    <div class="detail-value" id="finalMovieNight">--</div>
+                </div>
+            </div>
+            <p class="success-sub">It's locked in! I can't wait to see you there!</p>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
